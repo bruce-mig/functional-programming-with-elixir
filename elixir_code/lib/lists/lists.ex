@@ -47,4 +47,11 @@ defmodule ElixirCode.Lists do
   defp concat_func([], dst), do: dst
   defp concat_func([h | t], dst), do: concat_func(t, [h | dst])
 
+  # ----------------------------------- FlatMap -----------------------------------
+
+  @spec flat_map([any()], (any() -> any()), [any()]) :: [any()]
+  def flat_map(elements, func, acc \\ [])
+  def flat_map([], _, acc), do: acc
+  def flat_map([h | t], func, acc), do: flat_map(t, func, concat(acc, func.(h)))
+
 end
