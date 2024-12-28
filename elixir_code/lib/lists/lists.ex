@@ -32,5 +32,10 @@ defmodule ElixirCode.Lists do
   def reverse([], acc), do: acc
   def reverse([h | t], acc), do: reverse(t, [h | acc])
 
+  # ----------------------------------- Map -----------------------------------
 
+  @spec map([any()], (any() -> any()), [any()]) :: [any()]
+  def map(elements, func, acc \\ [])
+  def map([], _, acc), do: acc |> reverse()
+  def map([h | t], func, acc), do: map(t, func, [func.(h) | acc])
 end
