@@ -7,6 +7,8 @@ defmodule ElixirCode.Lists do
   1. sum
   """
 
+  # ----------------------------------- Sum -----------------------------------
+
   @doc """
   Returns the sum of numbers in a list
   """
@@ -22,4 +24,13 @@ defmodule ElixirCode.Lists do
   def sum_tail_rec(nums, acc \\ 0)
   def sum_tail_rec([], acc), do: acc
   def sum_tail_rec([h | t], acc), do: sum_tail_rec(t, acc + h)
+
+  # ----------------------------------- Reverse -----------------------------------
+
+  @spec reverse([any()], [any()]) :: [any()]
+  def reverse(elements, acc \\ [])
+  def reverse([], acc), do: acc
+  def reverse([h | t], acc), do: reverse(t, [h | acc])
+
+
 end
